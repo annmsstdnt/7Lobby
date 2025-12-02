@@ -23,40 +23,52 @@
     <p id="pinMessage" style="color:red;"></p>
   </div>
 
-  <!-- Announcements -->
-  <div id="announcements">
-    <div class="announcement">
-      <p class="date">Dec 2, 2025</p>
-      <strong>Science Club Meeting</strong>
-      <p>Room 12 at 3 PM</p>
-    </div>
-
-    <div class="announcement">
-      <p class="date">Dec 3, 2025</p>
-      <strong>Math Quiz on Friday</strong>
-      <p>Study chapters 5 & 6</p>
-    </div>
-  </div>
+  <!-- Announcements container -->
+  <div id="announcements"></div>
 
   <p id="congratsMessage" class="congrats hidden">Congrats!</p>
 
   <script>
-    const correctPin = "1234"; // <- change this to your PIN
+    // ---------------- EDIT ONLY THIS PART ----------------
+    const correctPin = "1234"; // your PIN
+
+    // Simple list of announcements
+    const announcementsList = [
+      "Social Studies HW - 100 MRU - Whole Class",
+      "Math Hw - 250 MRU - Whole Class",
+      "English HW - 200 - Whole Class"
+    ];
+    // ---------------- END EDITABLE PART ----------------
+
+    const container = document.getElementById("announcements");
+
+    // Display announcements automatically
+    function displayAnnouncements() {
+      container.innerHTML = ""; // clear container
+      announcementsList.forEach(text => {
+        const div = document.createElement("div");
+        div.className = "announcement";
+        div.innerHTML = `<p class="date">---</p><strong>${text}</strong>`;
+        container.appendChild(div);
+      });
+    }
+
+    displayAnnouncements(); // initial display
+
+    // PIN code check
     function checkPin() {
       const input = document.getElementById("pinInput").value;
       const message = document.getElementById("pinMessage");
-      const announcements = document.getElementById("announcements");
       const congrats = document.getElementById("congratsMessage");
 
       if(input === correctPin) {
-        // Replace all announcement content with "niche bah yo"
-        const allAnnouncements = announcements.querySelectorAll(".announcement");
+        // Replace all announcements with "niche bah yo"
+        const allAnnouncements = container.querySelectorAll(".announcement");
         allAnnouncements.forEach(div => {
           div.innerHTML = '<p class="date">---</p><strong>niche bah yo</strong><p>niche bah yo</p>';
         });
-
-        congrats.classList.remove("hidden"); // show congrats message
-        document.getElementById("pinSection").classList.add("hidden"); // hide PIN input
+        congrats.classList.remove("hidden");
+        document.getElementById("pinSection").classList.add("hidden");
         message.textContent = "";
       } else {
         message.textContent = "Wrong PIN, try again!";
