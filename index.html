@@ -5,7 +5,7 @@
   <title>HW Answers - Sections</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
-    h1 { color: #000000; }
+    h1 { color: #2c3e50; }
 
     .section {
       background: #fff;
@@ -24,7 +24,6 @@
     button { padding: 8px; }
     .error { color: red; }
 
-
     /* FADE-IN ANIMATION */
     #content {
       opacity: 0;
@@ -39,57 +38,80 @@
 
   <h1>HW Answers - Unlockable Sections</h1>
 
-  <!-- PIN SECTION -->
+  <!-- PIN AREA -->
   <div id="pinSection">
     <input type="password" id="pinInput" placeholder="Enter PIN">
     <button onclick="checkPin()">Unlock</button>
     <p id="pinMessage" class="error"></p>
   </div>
 
-  <!-- CONTENT HIDDEN UNTIL PIN CORRECT -->
+  <!-- CONTENT (HIDDEN UNTIL PIN) -->
   <div id="content" class="hidden">
 
     <!-- ================== SECTION 1 ================== -->
     <div class="section">
+
       <!-- SECTION 1 BIG TEXT -->
-      <div class="bigText">Section 1 Big Text (SS ROME SENATE) </div>
+      <div class="bigText">
+        EDIT SECTION 1 BIG TEXT HERE
+      </div>
 
       <!-- SECTION 1 SMALL TEXT -->
-      <div class="smallText">Section 1 Small Text (EDIT THIS)</div>
+      <div class="smallText">
+        EDIT SECTION 1 SMALL TEXT HERE
+      </div>
+
     </div>
 
     <!-- ================== SECTION 2 ================== -->
     <div class="section">
+
       <!-- SECTION 2 BIG TEXT -->
-      <div class="bigText">Section 2 Big Text (EDIT THIS)</div>
+      <div class="bigText">
+        EDIT SECTION 2 BIG TEXT HERE
+      </div>
 
       <!-- SECTION 2 SMALL TEXT -->
-      <div class="smallText">Section 2 Small Text (EDIT THIS)</div>
+      <div class="smallText">
+        EDIT SECTION 2 SMALL TEXT HERE
+      </div>
+
     </div>
 
     <!-- ================== SECTION 3 ================== -->
     <div class="section">
+
       <!-- SECTION 3 BIG TEXT -->
-      <div class="bigText">Section 3 Big Text (EDIT THIS)</div>
+      <div class="bigText">
+        EDIT SECTION 3 BIG TEXT HERE
+      </div>
 
       <!-- SECTION 3 SMALL TEXT -->
-      <div class="smallText">Section 3 Small Text (EDIT THIS)</div>
+      <div class="smallText">
+        EDIT SECTION 3 SMALL TEXT HERE
+      </div>
+
     </div>
 
-    <!-- ================== SECTION 4 (NEW) ================== -->
+    <!-- ================== SECTION 4 ================== -->
     <div class="section">
+
       <!-- SECTION 4 BIG TEXT -->
-      <div class="bigText">Section 4 Big Text (EDIT THIS)</div>
+      <div class="bigText">
+        EDIT SECTION 4 BIG TEXT HERE
+      </div>
 
       <!-- SECTION 4 SMALL TEXT -->
-      <div class="smallText">Section 4 Small Text (EDIT THIS)</div>
+      <div class="smallText">
+        EDIT SECTION 4 SMALL TEXT HERE
+      </div>
+
     </div>
 
   </div>
 
   <script>
-    // ---------- CHANGE PIN HERE ----------
-    const correctPin = "6767";
+    const correctPin = "6767"; // CHANGE PIN HERE
 
     function checkPin() {
       const input = document.getElementById("pinInput").value;
@@ -97,14 +119,8 @@
       const content = document.getElementById("content");
 
       if (input === correctPin) {
-        // show content + animate fade-in
         content.classList.remove("hidden");
-
-        // next frame → fade to visible
-        setTimeout(() => {
-          content.classList.add("visible");
-        }, 20);
-
+        setTimeout(() => { content.classList.add("visible"); }, 20);
         document.getElementById("pinSection").classList.add("hidden");
       } else {
         message.textContent = "Wrong PIN, try again!";
