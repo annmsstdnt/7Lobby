@@ -33,12 +33,6 @@
 
 <h1>do ur homework bruh why are u here</h1>
 
-<!-- PIN AREA -->
-<div id="pinSection">
-  <input type="password" id="pinInput" placeholder="Enter PIN">
-  <button onclick="checkPin()">Unlock</button>
-  <p id="pinMessage" style="color:red;"></p>
-</div>
 
 <!-- SECTION 1 -->
 <div id="section1" class="sectionBox hidden">
@@ -56,25 +50,7 @@
 </div>
 
 <script>
-  const correctPin = "0000";
 
-  function checkPin() {
-    const entered = document.getElementById("pinInput").value;
-    const msg = document.getElementById("pinMessage");
-
-    if (entered === correctPin) {
-      msg.textContent = "";
-      document.getElementById("pinSection").classList.add("hidden");
-
-      // reveal all sections with fade effect
-      fadeInSection("section1");
-      setTimeout(() => fadeInSection("section2"), 200);
-      setTimeout(() => fadeInSection("section3"), 400);
-      setTimeout(() => fadeInSection("sectionPDF"), 600);
-
-    } else {
-      msg.textContent = "Wrong PIN, try again!";
-    }
   }
 
   function fadeInSection(id) {
